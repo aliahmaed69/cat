@@ -1,0 +1,139 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html,body{
+    width:100%;
+    overflow-x:hidden;
+    font-family:Tahoma, Arial, sans-serif;
+    background:linear-gradient(135deg,#ff4d6d,#ff8fab,#ffc2d1);
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+    position:relative;
+}
+
+/* fade out */
+.fade-out{
+    opacity:0;
+    transition:1s;
+}
+
+/* الكارد */
+.card,.gift-card{
+    width:100%;
+    max-width:600px;
+    padding:40px 25px;
+    text-align:center;
+    border-radius:30px;
+    background:rgba(255,255,255,0.12);
+    backdrop-filter:blur(15px);
+    border:1px solid rgba(255,255,255,0.25);
+    color:white;
+    z-index:2;
+}
+
+h1{font-size:clamp(2rem,5vw,3rem);margin-bottom:15px;}
+p{font-size:clamp(1rem,3vw,1.3rem);line-height:2;}
+
+/* الهدية */
+.counter{
+    width:70px;
+    height:70px;
+    margin:20px auto;
+    background:white;
+    color:#ff4d6d;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:35px;
+    font-weight:bold;
+}
+
+.gift-box{
+    font-size:80px;
+    cursor:pointer;
+    user-select:none;
+}
+
+.message{
+    opacity:0;
+    transform:translateY(20px);
+    transition:0.5s;
+    font-size:1.5rem;
+}
+
+.show{opacity:1;transform:translateY(0);}
+
+/* القطط */
+.cat{
+    position:absolute;
+    font-size:60px;
+    animation:catFloat 6s ease-in-out infinite;
+}
+
+.cat1{top:5%;left:5%;}
+.cat2{top:10%;right:10%;}
+.cat3{bottom:10%;left:10%;}
+.cat4{bottom:5%;right:5%;}
+
+@keyframes catFloat{
+    0%{transform:translateY(0)}
+    50%{transform:translateY(-20px)}
+    100%{transform:translateY(0)}
+}
+
+/* القلوب */
+.heart{
+    position:fixed;
+    bottom:-50px;
+    color:white;
+    animation:float 8s linear infinite;
+}
+
+@keyframes float{
+    from{transform:translateY(0);opacity:0}
+    50%{opacity:1}
+    to{transform:translateY(-120vh);opacity:0}
+}
+
+/* shake */
+.shake{animation:shake 0.4s;}
+@keyframes shake{
+    0%{transform:translateX(0)}
+    25%{transform:translateX(-8px)}
+    50%{transform:translateX(8px)}
+    75%{transform:translateX(-8px)}
+    100%{transform:translateX(0)}
+}
+
+.open{animation:pop 0.6s ease;}
+@keyframes pop{
+    0%{transform:scale(0.5)}
+    100%{transform:scale(1.2)}
+}
+
+/* page2 */
+.page2 .card{
+    animation:fadeIn 1.5s ease;
+}
+
+@keyframes fadeIn{
+    from{opacity:0;transform:translateY(30px)}
+    to{opacity:1;transform:translateY(0)}
+}
+
+canvas{
+    position:fixed;
+    top:0;
+    left:0;
+    pointer-events:none;
+}
