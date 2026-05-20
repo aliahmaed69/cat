@@ -1,138 +1,33 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>جاهزة لهديتك</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🐱 أهلاً بك</title>
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<!-- صوت -->
-<audio id="openSound">
-    <source src="https://www.soundjay.com/misc/sounds/bell-ringing-05.mp3" type="audio/mpeg">
-</audio>
+  <div class="cat cat1">🐱</div>
+  <div class="cat cat2">🐱</div>
+  <div class="cat cat3">🐱</div>
+  <div class="cat cat4">🐱</div>
 
-<!-- القلوب -->
-<script>
-function createHeart(){
-    const heart=document.createElement("div");
-    heart.classList.add("heart");
-    heart.innerHTML="❤";
+  <div class="card">
+    <h1>🐾 أهلاً بك في عالم قطوتي 💖</h1>
 
-    heart.style.left=Math.random()*100+"vw";
-    heart.style.fontSize=Math.random()*20+15+"px";
-    heart.style.animationDuration=Math.random()*3+5+"s";
+    <p>
+      تقدر تدخل لموقع قطوتي الأساسي 🐱🌸 <br>
+      أو تدخل صفحة التخرج الخاصة فيها 🎓🎉 <br>
+      اختر المكان اللي تحب تزوره الآن ✨
+    </p>
 
-    document.body.appendChild(heart);
-    setTimeout(()=>heart.remove(),8000);
-}
-setInterval(createHeart,350);
-</script>
-
-<!-- القطط -->
-<div class="cat cat1">🐱</div>
-<div class="cat cat2">🐾</div>
-<div class="cat cat3">🐈</div>
-<div class="cat cat4">😺</div>
-
-<!-- الهدية -->
-<div class="gift-card" id="giftCard">
-
-    <h1>🎁 جاهزة لهديتك ياقطوتي؟</h1>
-    <p>اضغطي على الهدية حتى تنفتح ✨</p>
-
-    <div class="counter" id="counter">3</div>
-
-    <div class="gift-box" id="giftBox">🎁</div>
-
-    <div class="message" id="message">💖 مفاجأة جميلة لك 💖</div>
-
-</div>
-
-<!-- كونفيتي -->
-<canvas id="confetti"></canvas>
-
-<script>
-const giftBox=document.getElementById("giftBox");
-const counter=document.getElementById("counter");
-const message=document.getElementById("message");
-const sound=document.getElementById("openSound");
-
-let clicks=3;
-
-function startConfetti(){
-    const canvas=document.getElementById("confetti");
-    const ctx=canvas.getContext("2d");
-
-    canvas.width=window.innerWidth;
-    canvas.height=window.innerHeight;
-
-    let pieces=[];
-
-    for(let i=0;i<120;i++){
-        pieces.push({
-            x:Math.random()*canvas.width,
-            y:Math.random()*canvas.height,
-            r:Math.random()*6+2,
-            d:Math.random()*10+5
-        });
-    }
-
-    function draw(){
-        ctx.clearRect(0,0,canvas.width,canvas.height);
-        ctx.fillStyle="#fff";
-
-        pieces.forEach(p=>{
-            ctx.beginPath();
-            ctx.arc(p.x,p.y,p.r,0,Math.PI*2,true);
-            ctx.fill();
-        });
-
-        update();
-    }
-
-    function update(){
-        pieces.forEach(p=>{
-            p.y+=p.d*0.5;
-            if(p.y>canvas.height){p.y=0;}
-        });
-    }
-
-    setInterval(draw,30);
-}
-
-giftBox.addEventListener("click",()=>{
-
-    if(clicks>0){
-        clicks--;
-        counter.innerHTML=clicks;
-        giftBox.classList.add("shake");
-        setTimeout(()=>giftBox.classList.remove("shake"),400);
-    }
-
-    if(clicks===0){
-
-        sound.play();
-
-        giftBox.innerHTML="💖";
-        giftBox.classList.add("open");
-        message.classList.add("show");
-        counter.style.display="none";
-
-        startConfetti();
-
-        setTimeout(()=>{
-            document.body.classList.add("fade-out");
-        },1200);
-
-        setTimeout(()=>{
-            window.location.href="love.html";
-            
-        },2200);
-    }
-});
-</script>
+    <div class="buttons">
+      <a class="btn" href="index.html">🌸 دخول لموقع قطوتي</a>
+      <a class="btn btn2" href="graduation.html">🎓 تخرج قطوتي</a>
+    </div>
+  </div>
 
 </body>
 </html>
