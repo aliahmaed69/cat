@@ -137,3 +137,53 @@ canvas{
     left:0;
     pointer-events:none;
 }
+.buttons{
+    margin-top:30px;
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+.btn{
+    text-decoration:none;
+    padding:14px 22px;
+    border-radius:18px;
+    background:white;
+    color:#ff4d6d;
+    font-size:18px;
+    font-weight:bold;
+    transition:0.3s;
+    display:block;
+}
+
+.btn:hover{
+    transform:scale(1.06);
+    background:#ffe0e9;
+}
+
+.btn2{
+    background:rgba(255,255,255,0.25);
+    color:white;
+    border:1px solid rgba(255,255,255,0.5);
+}
+
+.btn2:hover{
+    background:rgba(255,255,255,0.35);
+}
+.back{
+    display:inline-block;
+    margin-top:20px;
+    text-decoration:none;
+    font-size:18px;
+    color:white;
+    font-weight:bold;
+    padding:10px 18px;
+    border-radius:15px;
+    border:1px solid rgba(255,255,255,0.5);
+    transition:0.3s;
+}
+
+.back:hover{
+    background:rgba(255,255,255,0.2);
+    transform:scale(1.05);
+}
