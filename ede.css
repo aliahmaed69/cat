@@ -1,0 +1,342 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html,body{
+    width:100%;
+    overflow-x:hidden;
+
+    font-family:Tahoma, Arial, sans-serif;
+
+    background:linear-gradient(
+        135deg,
+        #ff4d6d,
+        #ff8fab,
+        #ffc2d1
+    );
+}
+
+body{
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    padding:20px;
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+/* شاشة البداية */
+
+#loader{
+
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:100%;
+
+    background:linear-gradient(
+        135deg,
+        #ff4d6d,
+        #ff8fab,
+        #ffc2d1
+    );
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    flex-direction:column;
+
+    z-index:9999;
+
+    animation:hideLoader 1s ease forwards;
+
+    animation-delay:4s;
+}
+
+/* الخروف */
+
+.sheep{
+
+    font-size:130px;
+
+    animation:sheepMove 2s ease-in-out infinite;
+}
+
+/* نص البداية */
+
+#loader h2{
+
+    margin-top:20px;
+
+    color:white;
+
+    font-size:38px;
+
+    text-shadow:
+    0 0 15px rgba(255,255,255,0.8);
+}
+
+/* حركة الخروف */
+
+@keyframes sheepMove{
+
+    0%{
+        transform:translateX(-40px);
+    }
+
+    50%{
+        transform:translateX(40px)
+        scale(1.1);
+    }
+
+    100%{
+        transform:translateX(-40px);
+    }
+}
+
+/* اختفاء شاشة البداية */
+
+@keyframes hideLoader{
+
+    to{
+        opacity:0;
+        visibility:hidden;
+    }
+}
+
+/* الكارد */
+
+.card{
+
+    width:100%;
+    max-width:600px;
+
+    padding:40px 25px;
+
+    text-align:center;
+
+    border-radius:30px;
+
+    background:rgba(255,255,255,0.12);
+
+    backdrop-filter:blur(15px);
+
+    border:1px solid rgba(255,255,255,0.25);
+
+    color:white;
+
+    z-index:2;
+
+    box-shadow:
+    0 0 20px rgba(255,105,180,0.25),
+    0 0 40px rgba(255,182,193,0.2);
+
+    opacity:0;
+
+    animation:showCard 1s ease forwards;
+
+    animation-delay:4s;
+}
+
+/* ظهور الكارد */
+
+@keyframes showCard{
+
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* العنوان */
+
+h1{
+
+    font-size:clamp(2rem,5vw,3rem);
+
+    margin-bottom:20px;
+
+    color:white;
+
+    text-shadow:
+    0 0 10px rgba(255,255,255,0.8),
+    0 0 20px rgba(255,105,180,0.8);
+}
+
+/* النص */
+
+p{
+
+    font-size:clamp(1rem,3vw,1.3rem);
+
+    line-height:2.1;
+
+    color:white;
+}
+
+/* عداد العيد */
+
+#countdown{
+
+    margin-top:25px;
+
+    padding:15px;
+
+    border-radius:20px;
+
+    background:rgba(255,255,255,0.15);
+
+    border:1px solid rgba(255,255,255,0.35);
+
+    color:white;
+
+    font-size:22px;
+
+    font-weight:bold;
+
+    box-shadow:
+    0 0 15px rgba(255,255,255,0.25);
+
+    backdrop-filter:blur(10px);
+
+    animation:glow 2s infinite alternate;
+}
+
+/* توهج */
+
+@keyframes glow{
+
+    from{
+        box-shadow:
+        0 0 10px rgba(255,255,255,0.2);
+    }
+
+    to{
+        box-shadow:
+        0 0 25px rgba(255,255,255,0.5);
+    }
+}
+
+/* الأزرار */
+
+.buttons{
+
+    margin-top:30px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:15px;
+}
+
+/* الزر */
+
+.btn{
+
+    text-decoration:none;
+
+    padding:14px 22px;
+
+    border:none;
+
+    border-radius:18px;
+
+    background:white;
+
+    color:#ff4d6d;
+
+    font-size:18px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:0.35s;
+
+    display:block;
+
+    box-shadow:
+    0 0 15px rgba(255,255,255,0.4);
+}
+
+.btn:hover{
+
+    transform:scale(1.06);
+
+    background:#ffe0e9;
+
+    box-shadow:
+    0 0 25px rgba(255,255,255,0.7);
+}
+
+/* الزر الثاني */
+
+.btn2{
+
+    background:rgba(255,255,255,0.18);
+
+    color:white;
+
+    border:1px solid rgba(255,255,255,0.5);
+
+    backdrop-filter:blur(10px);
+}
+
+.btn2:hover{
+
+    background:rgba(255,255,255,0.28);
+}
+
+/* القطط */
+
+.cat{
+
+    position:absolute;
+
+    font-size:70px;
+
+    animation:catFloat 6s ease-in-out infinite;
+
+    opacity:0.9;
+}
+
+.cat1{top:5%;left:5%;}
+.cat2{top:10%;right:10%;}
+.cat3{bottom:10%;left:10%;}
+.cat4{bottom:5%;right:5%;}
+
+/* حركة القطط */
+
+@keyframes catFloat{
+
+    0%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-20px);
+    }
+
+    100%{
+        transform:translateY(0);
+    }
+}

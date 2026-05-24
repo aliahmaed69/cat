@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+    content="width=device-width, initial-scale=1.0">
+
+    <title>
+        🐑 عيد الأضحى لقطوتي
+    </title>
+
+    <link rel="stylesheet"
+    href="ede.css">
+
+</head>
+
+<body>
+
+    <!-- شاشة البداية -->
+
+    <div id="loader">
+
+        <div class="sheep">
+            🐑
+        </div>
+
+        <h2>
+            عيد أضحى مبارك ✨
+        </h2>
+
+    </div>
+
+    <!-- القطط -->
+
+    <div class="cat cat1">🐱</div>
+
+    <div class="cat cat2">🐱</div>
+
+    <div class="cat cat3">🐱</div>
+
+    <div class="cat cat4">🐱</div>
+
+    <!-- الكارد -->
+
+    <div class="card">
+
+        <h1>
+            🐑✨ أول عيد أضحى مع قطوتي ✨🐱
+        </h1>
+
+        <p>
+
+            هذا أول عيد مع قطوتي الجميلة 💖🐾<br>
+
+            وأكيد صار العيد ألطف وأحلى بوجودك ✨<br>
+
+            يا أجمل فرحة دخلت حياتي 🥹🌸<br>
+
+            عسى أيامك كلها سعادة وراحة وضحك 🎉💕
+
+        </p>
+
+        <!-- عداد العيد -->
+
+        <div id="countdown">
+
+            ⏳ باقي على العيد:
+            <span id="timer"></span>
+
+        </div>
+
+        <!-- الأزرار -->
+
+        <div class="buttons">
+
+            <!-- تشغيل الأغنية -->
+
+            <button onclick="playSong()"
+            class="btn">
+
+                🎶 تشغيل الأغنية
+
+            </button>
+
+            <!-- الرجوع -->
+
+            <a href="index.html"
+            class="btn btn2">
+
+                ⬅️ الرجوع للصفحة الرئيسية
+
+            </a>
+
+        </div>
+
+    </div>
+
+    <!-- الأغنية -->
+
+    <audio id="song" loop autoplay>
+
+        <source src="ede1.mp3"
+        type="audio/mpeg">
+
+    </audio>
+
+    <!-- الجافاسكربت -->
+
+    <script>
+
+    /* تشغيل الأغنية */
+
+    function playSong(){
+
+        const song =
+        document.getElementById("song");
+
+        if(song.paused){
+
+            song.play();
+
+        }else{
+
+            song.pause();
+        }
+    }
+
+    /* عداد العيد */
+
+    const eidDate =
+    new Date("May 27, 2026 00:00:00")
+    .getTime();
+
+    const timer =
+    setInterval(function(){
+
+        const now =
+        new Date().getTime();
+
+        const distance =
+        eidDate - now;
+
+        const days =
+        Math.floor(distance /
+        (1000 * 60 * 60 * 24));
+
+        const hours =
+        Math.floor((distance %
+        (1000 * 60 * 60 * 24)) /
+        (1000 * 60 * 60));
+
+        const minutes =
+        Math.floor((distance %
+        (1000 * 60 * 60)) /
+        (1000 * 60));
+
+        const seconds =
+        Math.floor((distance %
+        (1000 * 60)) / 1000);
+
+        document.getElementById("timer")
+        .innerHTML =
+
+        days + " يوم 🐑 " +
+        hours + " ساعة ⏰ " +
+        minutes + " دقيقة 💖 " +
+        seconds + " ثانية";
+
+        if(distance < 0){
+
+            clearInterval(timer);
+
+            document.getElementById("timer")
+            .innerHTML =
+
+            "🎉 عيد أضحى مبارك 🎉";
+        }
+
+    },1000);
+
+    </script>
+
+</body>
+</html>
